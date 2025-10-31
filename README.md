@@ -1,5 +1,9 @@
 ## 🌐 Social Sphere
 
+
+## 🚀 Live Demo
+Click here to see the live deployed application: [SocialSphere Live Demo](https://socialsphere-3i0t.onrender.com/login)
+
 Social Sphere is a full-stack social media application. It allows users to create posts, like, comment, search for other users, and chat in real time. The app features a modern React frontend and a
 robust Express + MongoDB + Socket.io backend for seamless performance and scalability.
 
