@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Post } from "../models/post.model.js";
 import cloudinary from "../utils/cloudinary.js";
-import getDataUri from "../utils/dataUri.js";
+import getDataUri from "../utils/datauri.js";
 
 
 
