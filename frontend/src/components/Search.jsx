@@ -32,7 +32,7 @@ const Search = () => {
 
     try {
       setIsSearching(true)
-      const res = await axios.get(`http://localhost:8000/api/v1/user/search?query=${encodeURIComponent(query)}`, {
+      const res = await axios.get(`https://socialsphere-3i0t.onrender.com/api/v1/user/search?query=${encodeURIComponent(query)}`, {
         withCredentials: true
       })
       

@@ -1,25 +1,3 @@
-// import React from 'react'
-// import { Outlet } from 'react-router-dom'
-// import LeftSideBar from './LeftSideBar'
-// import RightSidebar from './RightSidebar' // optional, only show on home
-
-// const MainLayout = () => {
-//   return (
-//     <div className='flex'>
-//       {/* Left sidebar: fixed */}
-//       <LeftSideBar />
-
-//       {/* Main content wrapper */}
-//       <div className='flex-1 md:pl-64'>
-//         {/* For home page, show right sidebar; for other pages, Outlet alone */}
-//         <Outlet />
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default MainLayout
-
 
 //------css--------
 

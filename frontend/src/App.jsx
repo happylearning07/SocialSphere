@@ -39,47 +39,7 @@ function App() {
   const dispatch = useDispatch();
   const socketRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (!user?.id && !user?._id) {
-  //     // if no user, ensure socket is disconnected
-  //     if (socketRef.current) {
-  //       socketRef.current.disconnect();
-  //       socketRef.current = null;
-  //     }
-  //     return;
-  //   }
-
-  //   const uid = user?.id ?? user?._id; // support either convention
-  //   console.log("Connecting socket with user id:", uid);
-
-  //   socketRef.current = io('http://localhost:8000', {
-  //     query: { userId: uid },
-  //     transports: ['websocket'],
-  //   });
-
-  //   socketRef.current.on('connect', () => {
-  //     console.log('Socket connected:', socketRef.current.id);
-  //   });
-
-  //   socketRef.current.on('getOnlineUsers', (onlineUsers) => {
-  //     dispatch(setOnlineUsers(onlineUsers));
-  //   });
-
-  //   socketRef.current.on('disconnect', (reason) => {
-  //     console.log('Socket disconnected:', reason);
-  //   });
-
-  //   socketRef.current.on('notification', (notification) => {
-  //     dispatch(setLikeNotification(notification));
-  //   });
-
-  //   return () => {
-  //     if (socketRef.current) {
-  //       socketRef.current.disconnect();
-  //       socketRef.current = null;
-  //     }
-  //   };
-  // }, [user, dispatch]);
+  
 
 
   useEffect(() => {
@@ -94,7 +54,7 @@ function App() {
     const uid = user?.id ?? user?._id;
     console.log("Connecting socket with user id:", uid);
 
-    socketRef.current = io('http://localhost:8000', {
+    socketRef.current = io('https://socialsphere-3i0t.onrender.com', {
       query: { userId: uid },
       transports: ['websocket'],
     });

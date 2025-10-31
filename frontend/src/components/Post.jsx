@@ -89,7 +89,7 @@ const Post = ({ post }) => {
 
     try {
       const action = prevLiked ? 'dislike' : 'like'
-      const res = await axios.get(`http://localhost:8000/api/v1/post/${post._id}/${action}`, { withCredentials: true })
+      const res = await axios.get(`https://socialsphere-3i0t.onrender.com/api/v1/post/${post._id}/${action}`, { withCredentials: true })
       if (res.data.success) {
         toast.success(res.data.message)
       } else {
@@ -109,7 +109,7 @@ const Post = ({ post }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/post/${post._id}/comment`,
+        `https://socialsphere-3i0t.onrender.com/api/v1/post/${post._id}/comment`,
         { text },
         { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
       )
@@ -135,7 +135,7 @@ const Post = ({ post }) => {
 
   const deletePostHandler = async () => {
     try {
-      const res = await axios.delete(`http://localhost:8000/api/v1/post/delete/${post?._id}`, { withCredentials: true })
+      const res = await axios.delete(`https://socialsphere-3i0t.onrender.com/api/v1/post/delete/${post?._id}`, { withCredentials: true })
 
       if (res.data.success) {
         const updatedPostData = posts.filter((postItem) => postItem?._id != post?._id)
@@ -151,7 +151,7 @@ const Post = ({ post }) => {
 
   const bookmarkHandler = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/post/${post?._id}/bookmark`, { withCredentials: true })
+      const res = await axios.get(`https://socialsphere-3i0t.onrender.com/api/v1/post/${post?._id}/bookmark`, { withCredentials: true })
       if (res.data.success) {
         const saved = res.data.type === 'saved'
         setBookmarked(saved)
@@ -171,7 +171,7 @@ const Post = ({ post }) => {
 
   const unfollowHandler = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/user/followorunfollow/${post.author._id}`, {
+      const res = await axios.get(`https://socialsphere-3i0t.onrender.com/api/v1/user/followorunfollow/${post.author._id}`, {
         withCredentials: true
       });
       

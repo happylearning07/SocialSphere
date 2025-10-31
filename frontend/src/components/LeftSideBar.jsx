@@ -51,7 +51,7 @@ const LeftSideBar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/v1/user/logout', { withCredentials: true });
+            const res = await axios.get('https://socialsphere-3i0t.onrender.com/api/v1/user/logout', { withCredentials: true });
             if (res.data.success) {
                 dispatch(setAuthUser(null));
                 dispatch(setSelectedPost(null));
@@ -153,7 +153,7 @@ const LeftSideBar = () => {
                                             // mark only message notifications as read
                                             const msgs = (notifications || []).filter(n => n.type === 'message' && !n.isRead);
                                             for (const n of msgs) {
-                                                try { await axios.patch(`http://localhost:8000/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch(e) {}
+                                                try { await axios.patch(`https://socialsphere-3i0t.onrender.com/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch(e) {}
                                                 dispatch(markNotificationAsRead(n._id));
                                             }
                                         }
@@ -166,7 +166,7 @@ const LeftSideBar = () => {
                                                     // mark only message notifications as read
                                                     const msgs = (notifications || []).filter(n => n.type === 'message' && !n.isRead);
                                                     for (const n of msgs) {
-                                                        try { await axios.patch(`http://localhost:8000/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch(e) {}
+                                                        try { await axios.patch(`https://socialsphere-3i0t.onrender.com/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch(e) {}
                                                         dispatch(markNotificationAsRead(n._id));
                                                     }
                                                     navigate("/chat")
@@ -261,7 +261,7 @@ const LeftSideBar = () => {
                                                             key={n._id}
                                                             className='flex items-center gap-3 p-3 border-b border-gray-300 hover:bg-black/5 cursor-pointer'
                                                             onClick={async () => {
-                                                                try { await axios.patch(`http://localhost:8000/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch (e) {}
+                                                                try { await axios.patch(`https://socialsphere-3i0t.onrender.com/api/v1/message/notifications/${n._id}/read`, {}, { withCredentials: true }); } catch (e) {}
                                                                 dispatch(markNotificationAsRead(n._id));
                                                             }}
                                                         >

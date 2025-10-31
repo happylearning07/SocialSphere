@@ -10,7 +10,7 @@ const useGetNotifications = () => {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const res = await axios.get('http://localhost:8000/api/v1/message/notifications', {
+                const res = await axios.get('https://socialsphere-3i0t.onrender.com/api/v1/message/notifications', {
                     withCredentials: true
                 })
                 if (res.data.success) {

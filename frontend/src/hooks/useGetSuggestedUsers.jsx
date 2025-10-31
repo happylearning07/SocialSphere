@@ -8,7 +8,7 @@ const useGetSuggestedUsers = () => {
     useEffect(()=>{
         const fetchSuggetsedUsers = async() =>{
             try{
-                const res = await axios.get('http://localhost:8000/api/v1/user/suggested',{withCredentials:true});
+                const res = await axios.get('https://socialsphere-3i0t.onrender.com/api/v1/user/suggested',{withCredentials:true});
                 if(res.data.success){
                     dispatch(setSuggestedUsers(res.data.users));
                 }

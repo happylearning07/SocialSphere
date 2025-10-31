@@ -47,7 +47,7 @@ const Profile = () => {
 
     const followUnfollowHandler = async () => {
         try {
-            const res = await axios.get(`http://localhost:8000/api/v1/user/followorunfollow/${userProfile?._id}`, {
+            const res = await axios.get(`https://socialsphere-3i0t.onrender.com/api/v1/user/followorunfollow/${userProfile?._id}`, {
                 withCredentials: true
             });
             

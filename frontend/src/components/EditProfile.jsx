@@ -39,40 +39,6 @@ const EditProfile = () => {
     setInput({...input,gender:value});
   }
 
-//   const editProfileHandler = async ()=>{
-//     console.log(input);
-//     const formData =new FormData();
-//     formData.append("bio",input.bio);
-//     formData.append("gender",input.gender);
-//     if(input.profilePhoto){
-//         formData.append("profilePhoto",input.profilePhoto);
-//     }
-//     try{
-//         setLoading(true);
-//         const res = await axios.post('http://localhost:8000/api/v1/user/profile/edit',formData,{
-//             headers:{
-//                 'Content-Type':'multipart/form-data'
-//             },
-//             withCredentials:true
-//         });
-//         if(res.data.success){
-//             const updatedUserData = {
-//                 ...user,
-//                 bio:res.data.user?.bio,
-//                 profilePicture:res.data.user?.profilePicture,
-//                 gender:res.data.user.gender
-//             };
-//             dispatch(setAuthUser(updatedUserData));
-//             navigate(`/profile/${user?.id}`)
-//             toast.success(res.data.message);
-//         }
-//     }catch(error){
-//         console.log(error);
-//         toast.error(error.response.data.message);
-//     }finally{
-//         setLoading(false);
-//     }
-//   }
 
 
 
@@ -94,7 +60,7 @@ const editProfileHandler = async () => {
 
     // IMPORTANT: DO NOT set Content-Type manually. Let the browser add the boundary.
     const res = await axios.post(
-      "http://localhost:8000/api/v1/user/profile/edit",
+      "https://socialsphere-3i0t.onrender.com/api/v1/user/profile/edit",
       formData,
       {
         withCredentials: true
