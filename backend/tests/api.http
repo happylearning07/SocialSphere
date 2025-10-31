@@ -1,0 +1,70 @@
+@base = http://localhost:8000
+@json = Content-Type: application/json
+# @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0ODM3MzQsImV4cCI6MTc1NzU3MDEzNH0.3x_chcT0j__TIYlcIJrnEqNUseuCB6eEBzUXS_I3QgI; Max-Age=86400
+
+### Health check
+GET {{base}}/
+
+### Register
+POST {{base}}/api/v1/user/register
+{{json}}
+
+{
+  "username": "sai",
+  "email": "sai@example.com",
+  "password": "saipassword123"
+}
+
+### Login
+POST {{base}}/api/v1/user/login
+{{json}}
+
+{
+  "email": "sai@example.com",
+  "password": "saipassword123"
+}
+
+### Logout
+GET {{base}}/api/v1/user/logout
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0NTAxNDIsImV4cCI6MTc1NzUzNjU0Mn0.gq9bh0pbs8D5YfuIH3ly-NJy4OxjqtVZD1EM-pjLCVM
+
+
+### Get Profile (for user "sai")
+GET {{base}}/api/v1/user/68c08e6fd8d4eb714bd3c248/profile
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0NTAxNDIsImV4cCI6MTc1NzUzNjU0Mn0.gq9bh0pbs8D5YfuIH3ly-NJy4OxjqtVZD1EM-pjLCVM
+
+
+### Edit Profile (update bio + gender)
+POST {{base}}/api/v1/user/profile/edit
+{{json}}
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0NTAxNDIsImV4cCI6MTc1NzUzNjU0Mn0.gq9bh0pbs8D5YfuIH3ly-NJy4OxjqtVZD1EM-pjLCVM
+
+{
+  "bio": "Full Stack Developer at IIT Patna",
+  "gender": "male"
+}
+
+
+### Get Suggested Users
+GET {{base}}/api/v1/user/suggested
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0NTAxNDIsImV4cCI6MTc1NzUzNjU0Mn0.gq9bh0pbs8D5YfuIH3ly-NJy4OxjqtVZD1EM-pjLCVM
+
+
+
+### Register new user (target)
+POST {{base}}/api/v1/user/register
+{{json}}
+
+{
+  "username": "sai2",
+  "email": "sai2@example.com",
+  "password": "sai2password"
+}
+
+use test
+db.users.find().pretty()
+
+
+### Follow target user
+GET {{base}}/api/v1/user/followorunfollow/68c0927ddf8fcad53d1710da
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGMwOGU2ZmQ4ZDRlYjcxNGJkM2MyNDgiLCJpYXQiOjE3NTc0ODM3MzQsImV4cCI6MTc1NzU3MDEzNH0.3x_chcT0j__TIYlcIJrnEqNUseuCB6eEBzUXS_I3QgI; Max-Age=86400
